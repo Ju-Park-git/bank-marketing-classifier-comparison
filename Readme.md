@@ -55,4 +55,5 @@ To prevent model overfitting and maximize test accuracy, we implemented a robust
 
 ## Final Recommendations & Next Steps
 1. **Production Deployment:** Deploy the **Logistic Regression** model or the **Optimized Decision Tree (max_depth=3)** for the core operational filtering queue. Both achieve robust test accuracy (~89.8% and ~88.7% respectively) with rapid execution constraints. 
-2. **Avoid High-Cost Architecture:** Do not scale raw, default Support Vector Machines (SVM) into active production. While
+2. **Avoid High-Cost Architecture:** Do not scale raw, default Support Vector Machines (SVM) into active production. While accurate, the computational overhead (~41.34s train footprint) creates scaling lag on live banking databases compared to alternative classifiers.
+3. **Strategic Campaign Prioritization:** Use the regularized rules extracted from the optimized Decision Tree to isolate key high-value prospect groups—specifically filtering demographic slices paired with stable macroeconomic conditions (lower `euribor3m` interest rates).
